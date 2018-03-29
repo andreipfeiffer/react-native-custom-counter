@@ -15,6 +15,9 @@ import {
 
 import CounterView from './CounterView'
 
+import { NativeModules } from 'react-native'
+console.log(NativeModules.Counter)
+
 export default class App extends Component {
   state = {
     count: 1
