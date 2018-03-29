@@ -13,4 +13,6 @@
 // or, we could also rename it ourselves
 //@interface RCT_EXTERN_REMAP_MODULE(CounterView, CounterViewManager, RCTViewManager)
 
+RCT_EXPORT_VIEW_PROPERTY(count, NSNumber)
+
 @end
