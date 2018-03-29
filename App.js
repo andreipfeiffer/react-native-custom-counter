@@ -22,10 +22,13 @@ NativeModules.Counter.getCount(value => {
   console.log("count is " + value)
 })
 
-function decrement() {
-  NativeModules.Counter.decrement()
-    .then(res => console.log(res))
-    .catch(e => console.log(e.message, e.code))
+async function decrement() {
+  try {
+    const res = await NativeModules.Counter.decrement()
+    console.log(res)
+  } catch(e) {
+    console.log(e.message, e.code)
+  }
 }
 
 // this Promise call should resolve
