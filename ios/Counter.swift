@@ -13,5 +13,9 @@ class Counter: NSObject {
   func constantsToExport() -> [AnyHashable : Any]! {
     return ["initialCount": 0]
   }
+  
+  static func requiresMainQueueSetup() -> Bool {
+    return true
+  }
 
 }
