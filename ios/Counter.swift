@@ -10,8 +10,15 @@ import Foundation
 @objc(Counter)
 class Counter: NSObject {
   
+  private var count = 0
+
+  func increment() {
+    count += 1
+    print("count is \(count)")
+  }
+  
   func constantsToExport() -> [AnyHashable : Any]! {
-    return ["initialCount": 0]
+    return ["initialCount": count]
   }
   
   static func requiresMainQueueSetup() -> Bool {
