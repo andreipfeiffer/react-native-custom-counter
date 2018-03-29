@@ -56,5 +56,9 @@ class CounterView: UIView {
       }
     }
   }
+  
+  func update(value: NSNumber) {
+    count = value
+  }
 
 }

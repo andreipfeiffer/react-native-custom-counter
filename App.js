@@ -11,7 +11,9 @@ import {
   Text,
   View,
   TouchableOpacity,
-  requireNativeComponent
+  requireNativeComponent,
+  UIManager,
+  findNodeHandle
 } from "react-native";
 
 const CounterView = requireNativeComponent("CounterView");
@@ -31,12 +33,21 @@ export default class App extends Component {
     });
   };
 
+  updateNative = () => {
+    UIManager.dispatchViewManagerCommand(
+      findNodeHandle(this.counterRef),
+      UIManager["CounterView"].Commands.updateFromManager,
+      [this.state.count]
+    );
+  };
+
   render() {
     return (
       <View style={styles.container}>
         <TouchableOpacity
           style={[styles.wrapper, styles.border]}
           onPress={this.increment}
+          onLongPress={this.updateNative}
         >
           <Text style={styles.button}>{this.state.count}</Text>
         </TouchableOpacity>
@@ -45,6 +56,7 @@ export default class App extends Component {
           style={styles.wrapper}
           count={2}
           onUpdate={this.update}
+          ref={e => (this.counterRef = e)}
         />
       </View>
     );

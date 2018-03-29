@@ -17,4 +17,13 @@ class CounterViewManager: RCTViewManager {
   override static func requiresMainQueueSetup() -> Bool {
     return true
   }
+  
+  func updateFromManager(_ node: NSNumber, count: NSNumber) {
+    DispatchQueue.main.async {
+      let component = self.bridge.uiManager.view(
+        forReactTag: node
+      ) as! CounterView
+      component.update(value: count)
+    }
+  }
 }

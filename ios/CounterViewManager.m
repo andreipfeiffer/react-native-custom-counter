@@ -19,4 +19,7 @@ RCT_EXPORT_VIEW_PROPERTY(count, NSNumber)
 // the name must begin with lowercase "on"
 RCT_EXPORT_VIEW_PROPERTY(onUpdate, RCTBubblingEventBlock)
 
+// all NSNumber arguments are required to be marked as "nonnull"
+RCT_EXTERN_METHOD(updateFromManager:(nonnull NSNumber *)node count:(nonnull NSNumber *)count)
+
 @end
