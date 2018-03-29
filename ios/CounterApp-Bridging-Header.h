@@ -7,3 +7,5 @@
 
 // required only for UI Views
 #import "React/RCTViewManager.h"
+// required only for Event Emitters
+#import "React/RCTEventEmitter.h"

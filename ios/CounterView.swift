@@ -14,6 +14,8 @@ class CounterView: UIView {
       button.setTitle(String(describing: count), for: .normal)
     }
   }
+  
+  var onUpdate: RCTBubblingEventBlock?
 
   override init(frame: CGRect) {
     super.init(frame: frame)
@@ -34,11 +36,25 @@ class CounterView: UIView {
       action: #selector(increment),
       for: .touchUpInside
     )
+    let longPress = UILongPressGestureRecognizer(
+      target: self,
+      action: #selector(sendUpdate(_:))
+    )
+    b.addGestureRecognizer(longPress)
     return b
   }()
 
   func increment() {
     count = count.intValue + 1 as NSNumber
+  }
+  
+  func sendUpdate(_ gesture: UILongPressGestureRecognizer) {
+    if gesture.state == .began {
+      if onUpdate != nil {
+        // our Event Emitter expects [AnyHashable:Any]
+        onUpdate!(["count": count])
+      }
+    }
   }
 
 }

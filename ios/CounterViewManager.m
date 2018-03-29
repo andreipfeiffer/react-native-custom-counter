@@ -15,4 +15,8 @@
 
 RCT_EXPORT_VIEW_PROPERTY(count, NSNumber)
 
+// the type could also be "RCTDirectEventBlock", but the difference is not explained anywhere
+// the name must begin with lowercase "on"
+RCT_EXPORT_VIEW_PROPERTY(onUpdate, RCTBubblingEventBlock)
+
 @end
