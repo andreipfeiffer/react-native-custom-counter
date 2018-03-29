@@ -15,4 +15,9 @@ class CounterViewManager: RCTViewManager {
     label.textAlignment = .center
     return label
   }
+  
+  // this is required since RN 0.49+
+  override static func requiresMainQueueSetup() -> Bool {
+    return true
+  }
 }
