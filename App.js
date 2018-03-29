@@ -10,12 +10,19 @@ import {
   StyleSheet,
   Text,
   View,
-  TouchableOpacity
+  TouchableOpacity,
+  NativeEventEmitter
 } from "react-native";
 
 import CounterView from './CounterView'
 
 import { NativeModules } from 'react-native'
+const CounterEvents = new NativeEventEmitter(NativeModules.Counter)
+
+CounterEvents.addListener("onIncrement", res => {
+  console.log("onIncrement event", res)
+})
+
 NativeModules.Counter.increment()
 
 NativeModules.Counter.getCount(value => {
