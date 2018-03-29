@@ -21,6 +21,16 @@ class Counter: NSObject {
     callback([count])
   }
   
+  func decrement(_ resolve: RCTPromiseResolveBlock, rejecter reject: RCTPromiseRejectBlock) -> Void {
+    if (count == 0) {
+      let error = NSError(domain: "", code: 200, userInfo: nil)
+      reject("E_COUNT", "count cannot be negative", error)
+    } else {
+      count -= 1
+      resolve("count was decremented")
+    }
+  }
+  
   func constantsToExport() -> [AnyHashable : Any]! {
     return ["initialCount": count]
   }

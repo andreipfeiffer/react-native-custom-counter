@@ -22,6 +22,17 @@ NativeModules.Counter.getCount(value => {
   console.log("count is " + value)
 })
 
+function decrement() {
+  NativeModules.Counter.decrement()
+    .then(res => console.log(res))
+    .catch(e => console.log(e.message, e.code))
+}
+
+// this Promise call should resolve
+decrement()
+// this one should reject
+decrement()
+
 export default class App extends Component {
   state = {
     count: 1
