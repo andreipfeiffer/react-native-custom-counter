@@ -17,6 +17,10 @@ class Counter: NSObject {
     print("count is \(count)")
   }
   
+  func getCount(_ callback: RCTResponseSenderBlock) {
+    callback([count])
+  }
+  
   func constantsToExport() -> [AnyHashable : Any]! {
     return ["initialCount": count]
   }
