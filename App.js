@@ -10,38 +10,18 @@ import {
   StyleSheet,
   Text,
   View,
-  TouchableOpacity,
-  NativeEventEmitter
+  TouchableOpacity
 } from "react-native";
 
 import CounterView from './CounterView'
 
-import { NativeModules } from 'react-native'
-const CounterEvents = new NativeEventEmitter(NativeModules.Counter)
-
-CounterEvents.addListener("onIncrement", res => {
-  console.log("onIncrement event", res)
+import Counter from "./Counter"
+Counter.addListener("onIncrement", res => {
+  console.log("event onIncrement", res)
 })
-
-NativeModules.Counter.increment()
-
-NativeModules.Counter.getCount(value => {
-  console.log("count is " + value)
-})
-
-async function decrement() {
-  try {
-    const res = await NativeModules.Counter.decrement()
-    console.log(res)
-  } catch(e) {
-    console.log(e.message, e.code)
-  }
-}
-
-// this Promise call should resolve
-decrement()
-// this one should reject
-decrement()
+Counter.increment()
+Counter.decrement()
+Counter.decrement()
 
 export default class App extends Component {
   state = {
