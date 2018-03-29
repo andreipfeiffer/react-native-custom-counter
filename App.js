@@ -10,13 +10,10 @@ import {
   StyleSheet,
   Text,
   View,
-  TouchableOpacity,
-  requireNativeComponent,
-  UIManager,
-  findNodeHandle
+  TouchableOpacity
 } from "react-native";
 
-const CounterView = requireNativeComponent("CounterView");
+import CounterView from './CounterView'
 
 export default class App extends Component {
   state = {
@@ -28,17 +25,11 @@ export default class App extends Component {
   };
 
   update = e => {
-    this.setState({
-      count: e.nativeEvent.count
-    });
+    this.setState({ count: e.count })
   };
 
   updateNative = () => {
-    UIManager.dispatchViewManagerCommand(
-      findNodeHandle(this.counterRef),
-      UIManager["CounterView"].Commands.updateFromManager,
-      [this.state.count]
-    );
+    this.counterRef.update(this.state.count);
   };
 
   render() {
