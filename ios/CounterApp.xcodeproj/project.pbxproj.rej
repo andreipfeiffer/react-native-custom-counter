@@ -1,0 +1,62 @@
+diff a/ios/CounterApp.xcodeproj/project.pbxproj b/ios/CounterApp.xcodeproj/project.pbxproj	(rejected hunks)
+@@ -34,7 +35,7 @@
+ 		2D02E4C81E0B4AEC006451C7 /* libRCTWebSocket-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3E991DF850E9000B6D8A /* libRCTWebSocket-tvOS.a */; };
+ 		2D16E6881FA4F8E400B85C8A /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D16E6891FA4F8E400B85C8A /* libReact.a */; };
+ 		2DCD954D1E0B4F2C00145EB5 /* CounterAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* CounterAppTests.m */; };
+-		5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
++		2DF0FFEE2056DD460020B375 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3EA31DF850E9000B6D8A /* libReact.a */; };
+ 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
+ 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
+ /* End PBXBuildFile section */
+@@ -439,13 +496,21 @@
+ 			isa = PBXGroup;
+ 			children = (
+ 				146834041AC3E56700842450 /* libReact.a */,
++				3DAD3EA31DF850E9000B6D8A /* libReact.a */,
+ 				3DAD3EA51DF850E9000B6D8A /* libyoga.a */,
+ 				3DAD3EA71DF850E9000B6D8A /* libyoga.a */,
+ 				3DAD3EA91DF850E9000B6D8A /* libcxxreact.a */,
+ 				3DAD3EAB1DF850E9000B6D8A /* libcxxreact.a */,
+ 				3DAD3EAD1DF850E9000B6D8A /* libjschelpers.a */,
+ 				3DAD3EAF1DF850E9000B6D8A /* libjschelpers.a */,
+-				3DAD3EA31DF850E9000B6D8A /* libReact-tvOS.a */,
++				2DF0FFDF2056DD460020B375 /* libjsinspector.a */,
++				2DF0FFE12056DD460020B375 /* libjsinspector-tvOS.a */,
++				2DF0FFE32056DD460020B375 /* libthird-party.a */,
++				2DF0FFE52056DD460020B375 /* libthird-party.a */,
++				2DF0FFE72056DD460020B375 /* libdouble-conversion.a */,
++				2DF0FFE92056DD460020B375 /* libdouble-conversion.a */,
++				2DF0FFEB2056DD460020B375 /* libprivatedata.a */,
++				2DF0FFED2056DD460020B375 /* libprivatedata-tvOS.a */,
+ 			);
+ 			name = Products;
+ 			sourceTree = "<group>";
+@@ -828,10 +949,10 @@
+ 			remoteRef = 3DAD3E981DF850E9000B6D8A /* PBXContainerItemProxy */;
+ 			sourceTree = BUILT_PRODUCTS_DIR;
+ 		};
+-		3DAD3EA31DF850E9000B6D8A /* libReact-tvOS.a */ = {
++		3DAD3EA31DF850E9000B6D8A /* libReact.a */ = {
+ 			isa = PBXReferenceProxy;
+ 			fileType = archive.ar;
+-			path = "libReact-tvOS.a";
++			path = libReact.a;
+ 			remoteRef = 3DAD3EA21DF850E9000B6D8A /* PBXContainerItemProxy */;
+ 			sourceTree = BUILT_PRODUCTS_DIR;
+ 		};
+@@ -1092,6 +1215,7 @@
+ 					"-ObjC",
+ 					"-lc++",
+ 				);
++				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+ 				PRODUCT_NAME = CounterApp;
+ 				VERSIONING_SYSTEM = "apple-generic";
+ 			};
+@@ -1109,6 +1233,7 @@
+ 					"-ObjC",
+ 					"-lc++",
+ 				);
++				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+ 				PRODUCT_NAME = CounterApp;
+ 				VERSIONING_SYSTEM = "apple-generic";
+ 			};
