@@ -15,7 +15,7 @@ class CounterView: UIView {
     }
   }
   
-  var onUpdate: RCTBubblingEventBlock?
+  var onUpdate: RCTDirectEventBlock?
 
   override init(frame: CGRect) {
     super.init(frame: frame)

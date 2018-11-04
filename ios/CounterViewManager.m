@@ -17,7 +17,7 @@ RCT_EXPORT_VIEW_PROPERTY(count, NSNumber)
 
 // the type could also be "RCTDirectEventBlock", but the difference is not explained anywhere
 // the name must begin with lowercase "on"
-RCT_EXPORT_VIEW_PROPERTY(onUpdate, RCTBubblingEventBlock)
+RCT_EXPORT_VIEW_PROPERTY(onUpdate, RCTDirectEventBlock)
 
 // all NSNumber arguments are required to be marked as "nonnull"
 RCT_EXTERN_METHOD(updateFromManager:(nonnull NSNumber *)node count:(nonnull NSNumber *)count)
