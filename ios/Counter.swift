@@ -12,6 +12,7 @@ class Counter: RCTEventEmitter {
   
   private var count = 0
 
+  @objc
   func increment() {
     count += 1
     print("count is \(count)")
@@ -21,10 +22,12 @@ class Counter: RCTEventEmitter {
     sendEvent(withName: "onIncrement", body: ["count": count])
   }
   
+  @objc
   func getCount(_ callback: RCTResponseSenderBlock) {
     callback([count])
   }
   
+  @objc
   func decrement(_ resolve: RCTPromiseResolveBlock, rejecter reject: RCTPromiseRejectBlock) -> Void {
     if (count == 0) {
       let error = NSError(domain: "", code: 200, userInfo: nil)

@@ -18,7 +18,7 @@ class CounterViewManager: RCTViewManager {
     return true
   }
   
-  func updateFromManager(_ node: NSNumber, count: NSNumber) {
+  @objc func updateFromManager(_ node: NSNumber, count: NSNumber) {
     DispatchQueue.main.async {
       let component = self.bridge.uiManager.view(
         forReactTag: node
